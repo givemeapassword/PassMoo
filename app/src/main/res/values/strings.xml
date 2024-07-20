@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">PassMoo</string>
+    <string name="hack_for">Я тебя взлоМУчу через:</string>
+    <string name="generate_button">Generate</string>
+    <string name="dialog_start">Приложение нигде не сохраняет ваши пароли для вашей же личной безопасности.
+Спасибо за внимание.</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="info_list">инфо</string>
+    <string name="plug_count_years">100 тыс.лет</string>
+    <string name="title">Title</string>
+    <string name="Mode_Login">Режим \'Логин\'</string>
+    <string name="Mode_Int">Цифровые символы</string>
+    <string name="Mode_Low_Reg">Нижний регистр</string>
+    <string name="Mode_High_Reg">Верхний регистр</string>
+    <string name="Mode_Symbol">Специальные символы</string>
+</resources>

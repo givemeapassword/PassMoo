@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="RegularText">
+        <item name="android:textSize">24sp</item>
+        <item name="android:fontFamily">@font/roboto_regular</item>
+    </style>
+    <style name="BoldText" parent="RegularText">
+        <item name="android:textSize">48sp</item>
+    </style>
+    <style name="Title">
+        <item name="android:textSize">28sp</item>
+        <item name="android:fontFamily">@font/roboto_medium</item>
+    </style>
+    <style name="PopUpText" parent="RegularText">
+        <item name="android:textSize">18sp</item>
+        <item name="android:gravity">center</item>
+        <item name="fontFamily">@font/roboto_medium</item>
+    </style>
+
+
+    <style name="ButtonSettingStyle" parent="ShapeAppearance.Material3.Corner.Small">
+        <item name="cornerSizeTopLeft">0%</item>
+        <item name="cornerSizeBottomLeft">0%</item>
+        <item name="cornerSize">40%</item>
+        <item name="cornerFamilyTopRight">rounded</item>
+        <item name="cornerFamilyBottomRight">rounded</item>
+    </style>
+    <style name="ButtonGenerateStyle" parent="ShapeAppearance.Material3.Corner.Small">
+        <item name="cornerSizeTopRight">0%</item>
+        <item name="cornerSizeBottomRight">0%</item>
+        <item name="cornerSize">40%</item>
+        <item name="cornerFamilyTopRight">rounded</item>
+        <item name="cornerFamilyBottomRight">rounded</item>
+    </style>
+</resources>

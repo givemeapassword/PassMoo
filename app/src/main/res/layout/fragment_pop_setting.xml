@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+
+    <com.google.android.material.materialswitch.MaterialSwitch
+        android:id="@+id/login"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/Mode_Login"/>
+    <com.google.android.material.slider.Slider
+        android:id="@+id/slider"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:stepSize="1"
+        android:valueFrom="4"
+        app:labelBehavior="floating"
+        android:valueTo="16"/>
+    <com.google.android.material.materialswitch.MaterialSwitch
+        android:id="@+id/number"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/Mode_Int"/>
+    <com.google.android.material.materialswitch.MaterialSwitch
+        android:id="@+id/low_reg"
+        android:checked="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/Mode_Low_Reg"/>
+    <com.google.android.material.materialswitch.MaterialSwitch
+        android:id="@+id/high_reg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/Mode_High_Reg"/>
+    <com.google.android.material.materialswitch.MaterialSwitch
+        android:id="@+id/symbol"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/Mode_Symbol"/>
+
+
+</LinearLayout>
