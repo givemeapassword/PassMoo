@@ -7,8 +7,9 @@
     android:orientation="vertical"
     tools:context=".GeneratorPage.GeneratorFragment">
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rc_view_main"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="218dp"
         android:layout_marginHorizontal="51dp"
         android:layout_marginTop="120dp"/>
     <LinearLayout
