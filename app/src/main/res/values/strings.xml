@@ -13,4 +13,7 @@
     <string name="Mode_Low_Reg">Нижний регистр</string>
     <string name="Mode_High_Reg">Верхний регистр</string>
     <string name="Mode_Symbol">Специальные символы</string>
+    <string name="store_title">Популярные пароли</string>
+    <string name="ok">OK</string>
+    <string name="info">Основы кибербезопасности</string>
 </resources>

@@ -6,17 +6,18 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
-import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.passmoo.GeneratorPage.RecyclerVIew.GeneratorAdapter
-import com.example.passmoo.GeneratorPage.RecyclerVIew.PasswordData
+import androidx.fragment.app.activityViewModels
+import androidx.recyclerview.widget.RecyclerView
+import com.example.passmoo.GeneratorPage.RecyclerView.GeneratorAdapter
+import com.example.passmoo.GeneratorPage.RecyclerView.PasswordData
 import com.example.passmoo.databinding.FragmentGeneratorBinding
 
 class GeneratorFragment : Fragment() {
     private lateinit var binding: FragmentGeneratorBinding
-    private val list: List<PasswordData> = listOf(
-        PasswordData("fsdfsd"),
-        PasswordData("fsddfsfsd"),
-        PasswordData("fsaadfsd")
+    private val model: PasswordViewModel by activityViewModels()
+    private lateinit var adapter: GeneratorAdapter
+    private var list: MutableList<PasswordData> = mutableListOf(
+        PasswordData("ТУТ БУДЕТ ПАРОЛЬ")
     )
     companion object {
         @JvmStatic
@@ -26,6 +27,7 @@ class GeneratorFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
+
         binding = FragmentGeneratorBinding.inflate(layoutInflater)
         return binding.root
     }
@@ -42,9 +44,24 @@ class GeneratorFragment : Fragment() {
         }
 
         binding.apply {
-            val adapter = GeneratorAdapter(list)
+            adapter = GeneratorAdapter(list)
             rcViewMain.adapter = adapter
-            rcViewMain.layoutManager = LinearLayoutManager(context)
+            rcViewMain.apply {
+                setIsScrollingEnabled(true)
+                setOrientation(RecyclerView.VERTICAL)
+                setAlpha(true)
+                setFlat(true)
+                setInfinite(true)
+            }
+        }
+
+        with(model){
+            passwordDurability.observe(viewLifecycleOwner){ item ->
+                binding.Durability.text = String.format("%.3f",item)
+            }
+            password.observe(viewLifecycleOwner){ item ->
+                adapter.addList(item)
+            }
         }
 
     }

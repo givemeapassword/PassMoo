@@ -36,10 +36,10 @@ class StoreFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
 
-        val adapter = StoreAdapter(list)
-        binding.apply {
-            rcViewStore.adapter = adapter
-            rcViewStore.layoutManager = LinearLayoutManager(context)
+        val adapter =
+        binding.rcViewStore.apply {
+            adapter = StoreAdapter(list)
+            layoutManager = LinearLayoutManager(context)
         }
     }
 

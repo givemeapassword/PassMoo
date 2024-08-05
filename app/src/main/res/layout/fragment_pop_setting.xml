@@ -3,6 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:padding="50dp"
     android:orientation="vertical">
 
     <com.google.android.material.materialswitch.MaterialSwitch
@@ -11,11 +12,19 @@
         android:layout_height="wrap_content"
         android:text="@string/Mode_Login"/>
     <com.google.android.material.slider.Slider
-        android:id="@+id/slider"
+        android:id="@+id/slider_size"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:stepSize="1"
         android:valueFrom="4"
+        app:labelBehavior="floating"
+        android:valueTo="16"/>
+    <com.google.android.material.slider.Slider
+        android:id="@+id/slider_count"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:stepSize="1"
+        android:valueFrom="1"
         app:labelBehavior="floating"
         android:valueTo="16"/>
     <com.google.android.material.materialswitch.MaterialSwitch
@@ -25,7 +34,6 @@
         android:text="@string/Mode_Int"/>
     <com.google.android.material.materialswitch.MaterialSwitch
         android:id="@+id/low_reg"
-        android:checked="true"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/Mode_Low_Reg"/>
@@ -39,6 +47,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/Mode_Symbol"/>
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:text="@string/ok"
+        android:layout_gravity="center_horizontal"/>
 
 
 </LinearLayout>

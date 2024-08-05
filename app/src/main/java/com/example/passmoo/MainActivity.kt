@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.example.passmoo.InfoPage.InfoFragment
 import com.example.passmoo.GeneratorPage.GeneratorFragment
+import com.example.passmoo.GeneratorPage.PasswordViewModel
 import com.example.passmoo.StorePage.StoreFragment
 import com.example.passmoo.databinding.ActivityMainBinding
 

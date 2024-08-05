@@ -11,7 +11,7 @@
         android:layout_margin="20dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/title"/>
+        android:text="@string/store_title"/>
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rc_view_store"
         android:layout_width="match_parent"

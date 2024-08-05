@@ -1,14 +1,17 @@
-package com.example.passmoo.GeneratorPage.RecyclerVIew
+package com.example.passmoo.GeneratorPage.RecyclerView
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.RecyclerView
+import com.example.passmoo.GeneratorPage.PasswordViewModel
 import com.example.passmoo.R
 import com.example.passmoo.databinding.MainCardBinding
 
-class GeneratorAdapter(private val list: List<PasswordData>):
+class GeneratorAdapter(private var list: MutableList<PasswordData>):
     RecyclerView.Adapter<GeneratorAdapter.PasswordHolder>() {
+
 
     class PasswordHolder(item: View): RecyclerView.ViewHolder(item){
         private val binding = MainCardBinding.bind(item)
@@ -26,5 +29,10 @@ class GeneratorAdapter(private val list: List<PasswordData>):
 
     override fun onBindViewHolder(holder: PasswordHolder, position: Int) = holder.bind(list[position])
 
-    fun addData(password: List<PasswordData>) = list + password
+    fun addList(item: MutableList<PasswordData>){
+        list = item
+        notifyItemInserted(list.size-1)
+
+    }
+
 }

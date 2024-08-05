@@ -10,6 +10,6 @@
         android:textAppearance="@style/Title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/title" />
+        android:text="@string/info" />
 
 </FrameLayout>
