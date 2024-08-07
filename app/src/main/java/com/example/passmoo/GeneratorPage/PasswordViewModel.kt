@@ -7,5 +7,5 @@ import com.example.passmoo.GeneratorPage.RecyclerView.PasswordData
 class PasswordViewModel:ViewModel() {
 
     val password: MutableLiveData<MutableList<PasswordData>> by lazy {  MutableLiveData<MutableList<PasswordData>>()}
-    val passwordDurability: MutableLiveData<Double> by lazy {  MutableLiveData<Double>()}
+    val passwordDurability: MutableLiveData<String> by lazy {  MutableLiveData<String>()}
 }

@@ -8,8 +8,13 @@ import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.activityViewModels
 import com.example.passmoo.GeneratorPage.RecyclerView.PasswordData
 import com.example.passmoo.databinding.FragmentPopSettingBinding
+import kotlin.math.ceil
 import kotlin.math.log
+import kotlin.math.log2
 import kotlin.math.pow
+import kotlin.math.round
+import kotlin.math.roundToInt
+import kotlin.math.roundToLong
 
 class SettingPopFragment:DialogFragment() {
     private lateinit var binding: FragmentPopSettingBinding
@@ -80,10 +85,36 @@ class SettingPopFragment:DialogFragment() {
             list.add(PasswordData(password))
         }
     }
-    private fun passwordDurability(): Double{
-        val entropy = (2.0.pow(log(passwordBuilder.getCharSetSize().pow(numberSliderSize), 2.0)))
-        val speed = 0.0001*entropy
-        return speed
+    private fun passwordDurability(): String{
+        val speed = 10000000000 //скорость перебора паролей в секунду
+        val entropy = numberSliderSize * log2(passwordBuilder.getCharSetSize())
+        val crackingTime = ((2.0.pow(entropy-1))/speed)
+        val translatingTime = translateTime(crackingTime)
+        return translatingTime
+    }
+    private fun translateTime(seconds: Double):String{
+        val minute = seconds/60
+        val hours = minute/60
+        val days = hours/24
+        val years = days/365
+
+        return when{
+            years>=1000 -> "Он умрет от старости"
+            years.toInt() == 1 -> "${years.roundToInt()} год"
+            years.toInt() in (2..4) -> "${years.roundToInt()} года"
+            years>=5 -> "${years.roundToInt()} лет"
+            days.toInt() == 1 -> "${years.roundToInt()} день"
+            days.toInt() in (2..4) -> "${years.roundToInt()} дня"
+            days>=5 -> "${days.roundToInt()} дней"
+            hours.toInt() == 1 -> "${years.roundToInt()} час"
+            hours.toInt() in (2..4) -> "${years.roundToInt()} часа"
+            hours>=5 -> "${hours.roundToInt()} часов"
+            minute.toInt() == 1 -> "${years.roundToInt()} минуту"
+            minute.toInt() in (2..4) -> "${years.roundToInt()} минуты"
+            minute>=5 -> "${minute.roundToInt()} минут"
+            seconds<=1 -> "смогу без рук"
+            else -> "${seconds.roundToInt()} секунд"
+        }
     }
 
 }

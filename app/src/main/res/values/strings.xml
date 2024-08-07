@@ -16,4 +16,6 @@
     <string name="store_title">Популярные пароли</string>
     <string name="ok">OK</string>
     <string name="info">Основы кибербезопасности</string>
+    <string name="info_password_title">Рекомендации по выбору надежного пароля</string>
+    <string name="info_password_main"></string>
 </resources>

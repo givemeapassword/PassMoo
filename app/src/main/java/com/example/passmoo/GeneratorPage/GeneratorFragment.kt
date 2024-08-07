@@ -57,7 +57,7 @@ class GeneratorFragment : Fragment() {
 
         with(model){
             passwordDurability.observe(viewLifecycleOwner){ item ->
-                binding.Durability.text = String.format("%.3f",item)
+                binding.Durability.text = item
             }
             password.observe(viewLifecycleOwner){ item ->
                 adapter.addList(item)

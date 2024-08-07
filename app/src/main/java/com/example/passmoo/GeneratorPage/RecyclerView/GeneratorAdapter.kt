@@ -5,10 +5,12 @@ import android.content.ClipData
 import android.content.ClipboardManager
 import android.content.Context
 import android.content.Context.CLIPBOARD_SERVICE
+import android.os.Build
 import android.view.LayoutInflater
 import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.example.passmoo.R
@@ -27,9 +29,12 @@ class GeneratorAdapter(private var list: MutableList<PasswordData>):
             binding.password.setOnTouchListener(object : View.OnTouchListener {
                 override fun onTouch(v: View?, event: MotionEvent?): Boolean {
                     when (event?.action) {
-                        MotionEvent.ACTION_DOWN -> {
+                        MotionEvent.ACTION_UP -> {
                             val clipBoard = ContextCompat.getSystemService(binding.root.context,ClipboardManager::class.java) as ClipboardManager
                             clipBoard.setPrimaryClip(ClipData.newPlainText("Пароль",binding.password.text))
+                            if (Build.VERSION.SDK_INT <= Build.VERSION_CODES.S_V2){
+                                Toast.makeText(binding.root.context, "Copied",Toast.LENGTH_SHORT).show()
+                            }
                             return true
                         }
                     }
