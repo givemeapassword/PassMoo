@@ -40,7 +40,8 @@ android {
 }
 
 dependencies {
-    implementation("com.github.sparrow007:carouselrecyclerview:1.2.6")
+    implementation(libs.dotsindicator)
+    implementation(libs.carouselrecyclerview)
     implementation(libs.androidx.fragment.ktx)
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)

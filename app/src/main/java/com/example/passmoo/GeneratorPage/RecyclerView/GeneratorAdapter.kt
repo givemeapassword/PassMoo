@@ -1,22 +1,42 @@
 package com.example.passmoo.GeneratorPage.RecyclerView
 
+import android.annotation.SuppressLint
+import android.content.ClipData
+import android.content.ClipboardManager
+import android.content.Context
+import android.content.Context.CLIPBOARD_SERVICE
 import android.view.LayoutInflater
+import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.activityViewModels
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
-import com.example.passmoo.GeneratorPage.PasswordViewModel
 import com.example.passmoo.R
 import com.example.passmoo.databinding.MainCardBinding
+
 
 class GeneratorAdapter(private var list: MutableList<PasswordData>):
     RecyclerView.Adapter<GeneratorAdapter.PasswordHolder>() {
 
 
-    class PasswordHolder(item: View): RecyclerView.ViewHolder(item){
+    inner class PasswordHolder(item: View): RecyclerView.ViewHolder(item){
         private val binding = MainCardBinding.bind(item)
+        @SuppressLint("ClickableViewAccessibility")
         fun bind(password: PasswordData) {
             binding.password.text = password.password
+            binding.password.setOnTouchListener(object : View.OnTouchListener {
+                override fun onTouch(v: View?, event: MotionEvent?): Boolean {
+                    when (event?.action) {
+                        MotionEvent.ACTION_DOWN -> {
+                            val clipBoard = ContextCompat.getSystemService(binding.root.context,ClipboardManager::class.java) as ClipboardManager
+                            clipBoard.setPrimaryClip(ClipData.newPlainText("Пароль",binding.password.text))
+                            return true
+                        }
+                    }
+                    return false
+                }
+
+            })
         }
     }
 

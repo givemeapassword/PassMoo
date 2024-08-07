@@ -23,9 +23,11 @@ class MainActivity: AppCompatActivity() {
         setContentView(binding.root)
 
         val adapter = ViewPagerAdapter(this,list)
-        binding.pager.adapter = adapter
-        binding.pager.currentItem = NUMBER_PAGE
-
+        binding.apply {
+            pager.adapter = adapter
+            pager.currentItem = NUMBER_PAGE
+            wormDotsIndicator.attachTo(binding.pager)
+        }
     }
 
 }
